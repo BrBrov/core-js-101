@@ -261,7 +261,6 @@ function getRectangleString(width, height) {
     }
     result.push(resStr);
   }
-  console.log(result);
   return result.join('');
 }
 
@@ -282,8 +281,29 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  // throw new Error('Not implemented');
+  console.log(str);
+  const strArr = [...str].map((el) => {
+    let decCode = el.codePointAt();
+    if (decCode >= 65 && decCode <= 90) {
+      if (decCode > 77) {
+        decCode = 64 + (13 - (90 - decCode));
+      } else {
+        decCode += 13;
+      }
+    } else if (decCode >= 97 && decCode <= 122) {
+      if (decCode > 109) {
+        decCode = 96 + (13 - (122 - decCode));
+      } else {
+        decCode += 13;
+      }
+    } else {
+      return el;
+    }
+    return String.fromCodePoint(decCode);
+  });
+  return strArr.join('');
 }
 
 /**
