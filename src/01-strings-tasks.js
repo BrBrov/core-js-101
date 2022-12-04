@@ -283,7 +283,6 @@ function getRectangleString(width, height) {
  */
 function encodeToRot13(str) {
   // throw new Error('Not implemented');
-  console.log(str);
   const strArr = [...str].map((el) => {
     let decCode = el.codePointAt();
     if (decCode >= 65 && decCode <= 90) {
@@ -319,8 +318,9 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  // throw new Error('Not implemented');
+  return (typeof value === 'string' || value instanceof String);
 }
 
 
@@ -348,8 +348,41 @@ function isString(/* value */) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  // throw new Error('Not implemented');
+  let suit;
+  switch (value.slice(value.length - 1)) {
+    case '♣':
+      suit = 1;
+      break;
+    case '♦':
+      suit = 2;
+      break; case '♥':
+      suit = 3;
+      break;
+    default:
+      suit = 4;
+      break;
+  }
+  let card;
+  switch (value.slice(0, value.length - 1)) {
+    case 'A':
+      card = 1;
+      break;
+    case 'J':
+      card = 11;
+      break;
+    case 'Q':
+      card = 12;
+      break;
+    case 'K':
+      card = 13;
+      break;
+    default:
+      card = value.slice(0, value.length - 1);
+      break;
+  }
+  return (suit - 1) * 13 + (card - 1);
 }
 
 
