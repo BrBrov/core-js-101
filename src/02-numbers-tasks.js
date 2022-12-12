@@ -94,7 +94,7 @@ function getLinearEquationRoot(a, b) {
 }
 
 /**
- * Returns an angle (in radians) between two vectors given by xi and yi,
+ * Returns an angle (in radians) between two vectors given by уфеу  and yi,
  * coordinates in Cartesian plane.
  * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
  *
