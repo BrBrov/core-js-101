@@ -94,7 +94,7 @@ function getLinearEquationRoot(a, b) {
 }
 
 /**
- * Returns an angle (in radians) between two vectors given by уфеу  and yi,
+ * Returns an angle (in radians) between two vectors given by and yi,
  * coordinates in Cartesian plane.
  * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
  *
@@ -111,8 +111,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  // throw new Error('Not implemented');
+  const scalar = (x1 * x2 + y1 * y2);
+  const length = Math.sqrt(x1 ** 2 + y1 ** 2) * Math.sqrt(x2 ** 2 + y2 ** 2);
+  const acos = Math.acos(scalar / length);
+  return acos;
 }
 
 /**
